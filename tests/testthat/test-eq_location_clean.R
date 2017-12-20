@@ -1,3 +1,4 @@
+library(rcap)
 context("Testing that the eq_location_clean function runs correctly")
 
 test_that("Location gets cleaned correctly", {

@@ -1,7 +1,7 @@
-library(readr)
-library(magrittr)
-library(dplyr)
-library(stringr)
+#library(readr)
+#library(magrittr)
+#library(dplyr)
+#library(stringr)
 
 # https://www.rstudio.com/wp-content/uploads/2015/03/devtools-cheatsheet.pdf
 # devtools::document()
@@ -160,16 +160,16 @@ eq_location_clean <- function(df){
 #---------------------------------------------------------------------------------------------
 
 #setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
-if(!dir.exists("data_raw")){
-  setwd('..') # go back to package directory
-}
+#if(!dir.exists("data_raw")){
+#  setwd('..') # go back to package directory
+#}
 
-df_earthquakes <- load_data() %>% eq_clean_data()
-if(!file.exists(file.path("data", "df_earthquakes.rda"))){
-  # package this cleaned data as part of the project
-  library(devtools)
-  devtools::use_data(df_earthquakes)
-}
+#df_earthquakes <- load_data() %>% eq_clean_data()
+#if(!file.exists(file.path("data", "df_earthquakes.rda"))){
+#  # package this cleaned data as part of the project
+#  library(devtools)
+#  devtools::use_data(df_earthquakes)
+#}
 
 #print(names(df))
 #print(head(df[c("YEAR", "MONTH", "DAY", "date")], 20)) # checking the date cleaning

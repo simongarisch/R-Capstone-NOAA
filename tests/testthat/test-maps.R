@@ -1,3 +1,4 @@
+library(rcap)
 context("Testing the creation of our leaflet maps and related functions")
 
 test_that("eq_map runs without error", {

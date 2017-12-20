@@ -1,6 +1,6 @@
-library(ggplot2)
-library(grid)
-library(dplyr)
+#library(ggplot2)
+#library(grid)
+#library(dplyr)
 #---------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------
 #' @title The geom_timeline function
@@ -86,8 +86,8 @@ geom_timeline_label <- function(mapping = NULL, data = NULL,
                           inherit.aes = TRUE, n_max = 5, ...) {
 
   # here we alter the number of earthquakes we apply a label to as n_max
-  data <- data %>% mutate(COUNTRY = as.character(COUNTRY), EQ_PRIMARY = as.numeric(EQ_PRIMARY)) %>%
-    arrange(COUNTRY, desc(EQ_PRIMARY))
+  data <- data %>% dplyr::mutate(COUNTRY = as.character(COUNTRY), EQ_PRIMARY = as.numeric(EQ_PRIMARY)) %>%
+    dplyr::arrange(COUNTRY, desc(EQ_PRIMARY))
 
   countries <- unique(data$COUNTRY)
   df_all <- data.frame()
@@ -147,10 +147,10 @@ geom_timeline_label <- function(mapping = NULL, data = NULL,
 #'          axis.title.y = element_blank()) +
 #'    xlab("DATE")
 #' }
-GeomTimeline <- ggplot2::ggproto("GeomTimeline", Geom,
+GeomTimeline <- ggplot2::ggproto("GeomTimeline", ggplot2::Geom,
                   required_aes = c("x"), # optional y aesthetic
-                  default_aes = aes(y=1, alpha=0.7, fill="grey", colour="grey", size=1, shape=21, stroke=1),
-                  draw_key = draw_key_point,
+                  default_aes = ggplot2::aes(y=1, alpha=0.7, fill="grey", colour="grey", size=1, shape=21, stroke=1),
+                  draw_key = ggplot2::draw_key_point,
 
                 # we'll need points across a line for each level / country
                 draw_group = function(data, panel_scales, coord) {
@@ -209,10 +209,10 @@ GeomTimeline <- ggplot2::ggproto("GeomTimeline", Geom,
 #'         axis.title.y = element_blank()) + xlab("DATE") +
 #'   geom_timeline_label(data=df)
 #' }
-GeomTimelineLabel <- ggplot2::ggproto("GeomTimelineLabel", Geom,
+GeomTimelineLabel <- ggplot2::ggproto("GeomTimelineLabel", ggplot2::Geom,
                         required_aes = c("x", "label"),
-                        default_aes = aes(y=1, alpha=0.7, fill="grey", colour="grey"),
-                        draw_key = draw_key_label,
+                        default_aes = ggplot2::aes(y=1, alpha=0.7, fill="grey", colour="grey"),
+                        draw_key = ggplot2::draw_key_label,
 
                         # we can already get the points and horizontal line using geom_timeline
                         # here we look to add a vertical line to a label
@@ -320,7 +320,7 @@ plot_earthquakes_timeline_label <- function(df, save_png=FALSE){
 #---------------------------------------------------------------------------------
 
 #print(sort(unique(df_earthquakes$COUNTRY)))
-df <- df_earthquakes %>%
-  filter(COUNTRY %in% c("CHINA", "USA"), YEAR > 2000)
-plot_earthquakes_timeline(df, save_png=TRUE)
-plot_earthquakes_timeline_label(df, save_png=TRUE)
+#df <- df_earthquakes %>%
+#  filter(COUNTRY %in% c("CHINA", "USA"), YEAR > 2000)
+#plot_earthquakes_timeline(df, save_png=TRUE)
+#plot_earthquakes_timeline_label(df, save_png=TRUE)

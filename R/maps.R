@@ -3,9 +3,9 @@
 #m = leaflet(df) %>% addTiles()
 #m %>% addCircleMarkers(~lng, ~lat, radius = ~size)
 
-library(leaflet)
-library(dplyr)
-library(lubridate)
+#library(leaflet)
+#library(dplyr)
+#library(lubridate)
 
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
@@ -23,6 +23,8 @@ library(lubridate)
 #' @return Returns an interactive leaflet map that you can print to the viewer.
 #' @export
 #'
+#' @import leaflet, magrittr
+#'
 #' @examples
 #' \dontrun{
 #'  map1 <-load_data() %>%
@@ -32,7 +34,7 @@ library(lubridate)
 #'  print(map1)
 #' }
 eq_map <- function(df, annot_col){
-  lmap <- df %>% leaflet() %>% addTiles() %>%
+  lmap <- df %>% leaflet::leaflet() %>% addTiles() %>%
     addCircleMarkers(lng=df$LONGITUDE,
                      lat=df$LATITUDE,
                      radius=df$EQ_PRIMARY,
@@ -85,15 +87,15 @@ eq_create_label <- function(df){
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
 
-map1 <-load_data() %>%
-        eq_clean_data() %>%
-        dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(date) >= 2000) %>%
-        eq_map(annot_col = "date")
-print(map1)
+#map1 <-load_data() %>%
+#        eq_clean_data() %>%
+#        dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(date) >= 2000) %>%
+#        eq_map(annot_col = "date")
+#print(map1)
 
-map2 <-load_data() %>%
-        eq_clean_data() %>%
-        dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(date) >= 2000) %>%
-        dplyr::mutate(popup_text = eq_create_label(.)) %>%
-        eq_map(annot_col = "popup_text")
-print(map2)
+#map2 <-load_data() %>%
+#        eq_clean_data() %>%
+#        dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(date) >= 2000) %>%
+#        dplyr::mutate(popup_text = eq_create_label(.)) %>%
+#        eq_map(annot_col = "popup_text")
+#print(map2)

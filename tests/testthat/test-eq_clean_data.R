@@ -1,3 +1,4 @@
+library(rcap)
 context("Testing that the clean_data function runs correctly")
 
 test_that("Data gets cleaned correctly", {

@@ -1,3 +1,4 @@
+library(rcap)
 context("Testing that the raw data loads correctly")
 
 test_that("Data can be collected from the data_raw folder and loaded into memory", {

@@ -1,3 +1,4 @@
+library(rcap)
 context("Testing that the date column is created correctly from DAY, MONTH, YEAR")
 
 test_that("The date column is created correctly", {
