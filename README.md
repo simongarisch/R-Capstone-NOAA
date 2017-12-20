@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/simongarisch/R-Capstone-NOAA.svg?branch=master)](https://travis-ci.org/simongarisch/R-Capstone-NOAA)
+
 # R Capstone: Clearning and plotting NOAA earthquake data
 
 ## Objective
