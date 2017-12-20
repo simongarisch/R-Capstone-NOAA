@@ -1,4 +1,4 @@
-# R-Capstone-NOAA
+# R Capstone: Clearning and plotting NOAA earthquake data
 
 ## Objective
 As part of the Coursera's R Capstone course this project contains functionality
@@ -58,6 +58,7 @@ ggplot(df, aes(x = date, y = COUNTRY,
 ```
 
 Which will produce the chart:
+
 <img src="earthquakes_timeline.png" width="690" height="550" />
 
 The second geom, called geom_timeline_label, looks to build on geom_timeline by adding
@@ -77,7 +78,9 @@ ggplot(df, aes(x = date, y = COUNTRY,
              axis.title.y = element_blank()) + xlab("DATE") +
        geom_timeline_label(data=df)
 ```
+
 Here is the resulting chart:
+
 <img src="earthquakes_timeline_label.png" width="690" height="550" />
 
 There are also functions available to create and save these plots.
