@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/simongarisch/R-Capstone-NOAA.svg?branch=master)](https://travis-ci.org/simongarisch/R-Capstone-NOAA)
 
-# R Capstone: Clearning and plotting NOAA earthquake data
+# R Capstone: Cleaning and plotting NOAA earthquake data
 
 ## Objective
 As part of the Coursera's R Capstone course this project contains functionality
