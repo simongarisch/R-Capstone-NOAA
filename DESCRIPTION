@@ -9,6 +9,7 @@ License: GPL-3
 LazyData: FALSE
 RoxygenNote: 6.0.1
 Suggests:
+    devtools,
     dplyr,
     tidyr,
     readr,
