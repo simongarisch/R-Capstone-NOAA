@@ -160,7 +160,7 @@ GeomTimeline <- ggplot2::ggproto("GeomTimeline", ggplot2::Geom,
                   #?grid::pointsGrob
                   # pch -> numeric or character vector indicating what sort of plotting symbol to use
                   # points for more details: pch = 21 is a filled circle. See page 259 of course materials
-                  points <- pointsGrob(coords$x, coords$y,
+                  points <- grid::pointsGrob(coords$x, coords$y,
                     pch = coords$shape,
                     size = grid::unit(coords$size / 6, "lines"),        # see ?grid::unit
                     gp = gpar(col = alpha(coords$colour, coords$alpha), # see ?scales::alpha
@@ -169,12 +169,12 @@ GeomTimeline <- ggplot2::ggproto("GeomTimeline", ggplot2::Geom,
                   )
 
                   #?grid::segmentsGrob
-                  line <- segmentsGrob(
+                  line <- grid::segmentsGrob(
                     x0 = 0, y0 = coords$y,
                     x1 = 1, y1 = coords$y,
                     gp = gpar(col = "grey", alpha=0.7, size=1)
                   )
-                  gList(points, line)
+                  grid::gList(points, line)
     }
   )
 #---------------------------------------------------------------------------------
@@ -221,13 +221,13 @@ GeomTimelineLabel <- ggplot2::ggproto("GeomTimelineLabel", ggplot2::Geom,
                           coords <- coord$transform(data, panel_scales)
 
                           y_extension <- 0.05
-                          line <- segmentsGrob(# get the vertical line
+                          line <- grid::segmentsGrob(# get the vertical line
                             x0 = coords$x, y0 = coords$y,
                             x1 = coords$x, y1 = coords$y + y_extension,
-                            gp = gpar(col = "grey", alpha=0.7, size=1)
+                            gp = grid::gpar(col = "grey", alpha=0.7, size=1)
                           )
 
-                          text <- textGrob(# ?grid::textGrob
+                          text <- grid::textGrob(# ?grid::textGrob
                             label=coords$label,
                             x = coords$x,
                             y = coords$y + y_extension,
@@ -235,7 +235,7 @@ GeomTimelineLabel <- ggplot2::ggproto("GeomTimelineLabel", ggplot2::Geom,
                             just = c("left", "bottom")
                           )
 
-                          gList(line, text)
+                          grid::gList(line, text)
                         }
 )
 
