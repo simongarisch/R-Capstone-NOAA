@@ -34,14 +34,14 @@
 #'  print(map1)
 #' }
 eq_map <- function(df, annot_col){
-  lmap <- df %>% leaflet::leaflet() %>% addTiles() %>%
-    addCircleMarkers(lng=df$LONGITUDE,
-                     lat=df$LATITUDE,
-                     radius=df$EQ_PRIMARY,
-                     popup=df[[annot_col]],
-                     color="blue",
-                     weight=1,
-                     opacity=0.5)
+  lmap <- df %>% leaflet::leaflet() %>% leaflet::addTiles() %>%
+    leaflet::addCircleMarkers(lng=df$LONGITUDE,
+                              lat=df$LATITUDE,
+                              radius=df$EQ_PRIMARY,
+                              popup=df[[annot_col]],
+                              color="blue",
+                              weight=1,
+                              opacity=0.5)
 }
 
 #-------------------------------------------------------------------------------

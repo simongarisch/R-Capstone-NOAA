@@ -26,9 +26,9 @@ required aesthetic whereas y (country) is optional.
                 label = CLEAN_LOCATION_NAME)) +
    geom_timeline() +
    labs(size = "Richter scale value", color = "# deaths") +
-   theme(panel.background = element_blank(),
+   ggplot2::theme(panel.background = ggplot2::element_blank(),
          legend.position = "bottom",
-         axis.title.y = element_blank()) +
-   xlab("DATE")
+         axis.title.y = ggplot2::element_blank()) +
+   ggplot2::xlab("DATE")
 }
 }

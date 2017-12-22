@@ -26,10 +26,10 @@
 #'                 label = CLEAN_LOCATION_NAME)) +
 #'    geom_timeline() +
 #'    labs(size = "Richter scale value", color = "# deaths") +
-#'    theme(panel.background = element_blank(),
+#'    ggplot2::theme(panel.background = ggplot2::element_blank(),
 #'          legend.position = "bottom",
-#'          axis.title.y = element_blank()) +
-#'    xlab("DATE")
+#'          axis.title.y = ggplot2::element_blank()) +
+#'    ggplot2::xlab("DATE")
 #' }
 geom_timeline <- function(mapping = NULL, data = NULL,
                           stat = "identity", position = "identity", na.rm = FALSE,
@@ -64,7 +64,7 @@ geom_timeline <- function(mapping = NULL, data = NULL,
 #'
 #' @export
 #'
-#' @import ggplot2
+#' @import ggplot2, dplyr
 #'
 #' @examples
 #' \dontrun{
@@ -74,9 +74,9 @@ geom_timeline <- function(mapping = NULL, data = NULL,
 #'                label = CLEAN_LOCATION_NAME)) +
 #'   geom_timeline() +
 #'   labs(size = "Richter scale value", color = "# deaths") +
-#'   theme(panel.background = element_blank(),
+#'   ggplot2::theme(panel.background = ggplot2::element_blank(),
 #'         legend.position = "bottom",
-#'         axis.title.y = element_blank()) + xlab("DATE") +
+#'         axis.title.y = ggplot2::element_blank()) + ggplot2::xlab("DATE") +
 #'   geom_timeline_label(data=df)
 #' }
 
@@ -92,7 +92,7 @@ geom_timeline_label <- function(mapping = NULL, data = NULL,
   countries <- unique(data$COUNTRY)
   df_all <- data.frame()
   for(country in countries){
-    df <- data %>% filter(COUNTRY == country) %>% head(n_max)
+    df <- data %>% dplyr::filter(COUNTRY == country) %>% head(n_max)
     df_all <- rbind(df_all, df)
   }
   data <- df_all
@@ -142,10 +142,10 @@ geom_timeline_label <- function(mapping = NULL, data = NULL,
 #'                 label = CLEAN_LOCATION_NAME)) +
 #'    geom_timeline() +
 #'    labs(size = "Richter scale value", color = "# deaths") +
-#'    theme(panel.background = element_blank(),
+#'    ggplot2::theme(panel.background = ggplot2::element_blank(),
 #'          legend.position = "bottom",
-#'          axis.title.y = element_blank()) +
-#'    xlab("DATE")
+#'          axis.title.y = ggplot2::element_blank()) +
+#'    ggplot2::xlab("DATE")
 #' }
 GeomTimeline <- ggplot2::ggproto("GeomTimeline", ggplot2::Geom,
                   required_aes = c("x"), # optional y aesthetic
@@ -204,9 +204,9 @@ GeomTimeline <- ggplot2::ggproto("GeomTimeline", ggplot2::Geom,
 #'                label = CLEAN_LOCATION_NAME)) +
 #'   geom_timeline() +
 #'   labs(size = "Richter scale value", color = "# deaths") +
-#'   theme(panel.background = element_blank(),
+#'   ggplot2::theme(panel.background = ggplot2::element_blank(),
 #'         legend.position = "bottom",
-#'         axis.title.y = element_blank()) + xlab("DATE") +
+#'         axis.title.y = ggplot2::element_blank()) + ggplot2::xlab("DATE") +
 #'   geom_timeline_label(data=df)
 #' }
 GeomTimelineLabel <- ggplot2::ggproto("GeomTimelineLabel", ggplot2::Geom,
@@ -269,10 +269,10 @@ plot_earthquakes_timeline <- function(df, save_png=FALSE){
                 size = as.numeric(EQ_PRIMARY))) +
          geom_timeline() +
          labs(size = "Richter scale value", color = "# deaths") +
-         theme(panel.background = element_blank(),
+         ggplot2::theme(panel.background = ggplot2::element_blank(),
                legend.position = "bottom",
-                axis.title.y = element_blank()) +
-         xlab("DATE")
+                axis.title.y = ggplot2::element_blank()) +
+         ggplot2::xlab("DATE")
 
   if(save_png){ggsave("earthquakes_timeline.png")}
 }
@@ -308,9 +308,9 @@ plot_earthquakes_timeline_label <- function(df, save_png=FALSE){
                 label = CLEAN_LOCATION_NAME)) +
          geom_timeline() +
          labs(size = "Richter scale value", color = "# deaths") +
-         theme(panel.background = element_blank(),
+         ggplot2::theme(panel.background = ggplot2::element_blank(),
                legend.position = "bottom",
-               axis.title.y = element_blank()) + xlab("DATE") +
+               axis.title.y = ggplot2::element_blank()) + ggplot2::xlab("DATE") +
          geom_timeline_label(data=df)
 
   if(save_png){ggsave("earthquakes_timeline_label.png")}

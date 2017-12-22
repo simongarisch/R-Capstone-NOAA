@@ -6,7 +6,7 @@ Author: Simon Garisch
 Maintainer: Simon Garisch <simon.garisch@gmail.com>
 Description: Coursera R Capstone project
 License: GPL-3
-LazyData: TRUE
+LazyData: FALSE
 RoxygenNote: 6.0.1
 Suggests:
     devtools,

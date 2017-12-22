@@ -11,9 +11,9 @@ test_that("geom_timeline runs correctly", {
                           label = CLEAN_LOCATION_NAME)) +
            geom_timeline() +
            ggplot2::labs(size = "Richter scale value", color = "# deaths") +
-           theme(panel.background = element_blank(),
+           ggplot2::theme(panel.background = ggplot2::element_blank(),
                  legend.position = "bottom",
-                 axis.title.y = element_blank()) + xlab("DATE")
+                 axis.title.y = ggplot2::element_blank()) + ggplot2::xlab("DATE")
 
   expect_is(plt, "gg")
   expect_is(plt, "ggplot")
@@ -29,9 +29,9 @@ test_that("geom_timeline_label runs correctly", {
                           label = CLEAN_LOCATION_NAME)) +
     geom_timeline() +
     ggplot2::labs(size = "Richter scale value", color = "# deaths") +
-    theme(panel.background = element_blank(),
+    ggplot2::theme(panel.background = ggplot2::element_blank(),
           legend.position = "bottom",
-          axis.title.y = element_blank()) + xlab("DATE") +
+          axis.title.y = ggplot2::element_blank()) + ggplot2::xlab("DATE") +
     geom_timeline_label(data=df)
 
   expect_is(plt, "gg")
