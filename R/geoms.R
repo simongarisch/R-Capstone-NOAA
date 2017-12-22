@@ -13,9 +13,9 @@
 #' earthquake magnitude and colour representing number of deaths. x (the date) is a
 #' required aesthetic whereas y (country) is optional.
 #'
-#' @export
-#'
 #' @import ggplot2
+#'
+#' @export
 #'
 #' @examples
 #' \dontrun{
@@ -62,9 +62,9 @@ geom_timeline <- function(mapping = NULL, data = NULL,
 #'
 #' @param n_max An integer (default = 5) indicating the maximum number of earthquakes to display.
 #'
-#' @export
-#'
 #' @import ggplot2, dplyr
+#'
+#' @export
 #'
 #' @examples
 #' \dontrun{
@@ -129,9 +129,9 @@ geom_timeline_label <- function(mapping = NULL, data = NULL,
 #' earthquake magnitude and colour representing number of deaths. x (the date) is a
 #' required aesthetic whereas y (country) is optional.
 #'
-#' @export
-#'
 #' @import ggplot2, grid, scales
+#'
+#' @export
 #'
 #' @examples
 #' \dontrun{
@@ -192,9 +192,9 @@ GeomTimeline <- ggplot2::ggproto("GeomTimeline", ggplot2::Geom,
 #' earthquake and label which takes the column name from which annotations will be obtained.
 #' Note that you should run geom_timeline first such that we have our points to annotate.
 #'
-#' @export
-#'
 #' @import ggplot2, grid
+#'
+#' @export
 #'
 #' @examples
 #' \dontrun{
@@ -253,7 +253,7 @@ GeomTimelineLabel <- ggplot2::ggproto("GeomTimelineLabel", ggplot2::Geom,
 #'
 #' @return NULL
 #'
-#' @import ggplot
+#' @import ggplot2
 #'
 #' @export
 #'
@@ -291,7 +291,7 @@ plot_earthquakes_timeline <- function(df, save_png=FALSE){
 #'
 #' @return NULL
 #'
-#' @import ggplot
+#' @import ggplot2
 #'
 #' @export
 #'

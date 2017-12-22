@@ -21,9 +21,10 @@
 #' annotation column
 #'
 #' @return Returns an interactive leaflet map that you can print to the viewer.
-#' @export
 #'
-#' @import leaflet, magrittr
+#' @import leaflet, dplyr
+#'
+#' @export
 #'
 #' @examples
 #' \dontrun{
@@ -56,6 +57,8 @@ eq_map <- function(df, annot_col){
 #'
 #' @return Returns a character vector of earthquake details that we can use for
 #' map annotations.
+#'
+#' @import dplyr, lubridate
 #'
 #' @export
 #'
